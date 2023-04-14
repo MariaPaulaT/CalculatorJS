@@ -70,18 +70,39 @@ $(".plus").click(function(){
 });
 
 $(".equals").click(function (){
-    if(numbers.length===0){
-
-    }else {
-     answer=numbers[0];
-   
-     console.log( numbers[1]);
-     
-     console.log( numbers[2]);
+  numeroInicial =0;
+  for(var j=0; j<numbers.length; j++){
+    if( j !== "1" || j !== "2" || j !== "3" ||j !== "4" || j !== "5"  || j !== "6" || j !== "7" || j !== "8" || j !== "9" || j !== "0"  ){
+      numeroInicial = getNumber(0,j);
+      console.log(numeroInicial);
+  }}
+    if(numbers.length!==0){
+    
     for(var i=1; i<numbers.length;i++){
-        if( numbers[i]===12 && numbers[i+1]<10){
-             answer=answer+ numbers[i+1];       
+        if( numbers[i]==="+"){
+          numero2 = getNumberFrom(i);
+          numeroInicial = numeroInicial+ numero2;       
         }
-        $("h2").text(answer);
+        $("h2").text(numeroInicial);
     }}
 });
+
+function getNumber (posicion1, posicion2){
+   numeroFinal= "";
+   numeroFinal = numbers.slice(posicion1, posicion2 + 1).join("");
+   numero = parseInt(numeroFinal);
+  return numero;
+}
+
+function getNumberFrom(posicion1){
+var posicion2=0; 
+  for(var j=posicion1+1; j<numbers.length;j++){
+    if( j !== "1" || j !== "2" || j !== "3" ||j !== "4" || j !== "5"  || j !== "6" || j !== "7" || j !== "8" || j !== "9" || j !== "0"  ){
+      posicion2=j;
+    }
+  }
+  numeroFinal = numbers.slice(posicion1, posicion2 + 1).join("");
+  numero = parseInt(numeroFinal);
+  return numero;
+
+}
