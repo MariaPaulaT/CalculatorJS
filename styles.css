@@ -1,0 +1,42 @@
+body {
+    text-align: center;
+    background-color: #ec7f3f;
+  }
+
+h1{
+    color:#D9ACF5;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    text-shadow: 1px 0 #ffffff;
+    padding-bottom: 1px;
+}
+
+.btn1, .btn2, .btn3, .btn4, .btn5, .btn6, .btn7, .btn8, .btn9, .btn0{
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    border: 5px solid black;
+    border-radius: 50%;
+    background-color: #e79a52;
+    box-shadow: 2px 2px 3px 1px rgba(0,0,0,.8);
+    margin: 10px 10px 10px 10px;
+    margin-top: 10px;
+
+  }
+
+  .ibtn {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    border: 5px solid black;
+    border-radius: 50%;
+    background-color: #e79a52;
+    box-shadow: 2px 2px 3px 1px rgba(0,0,0,.8);
+    margin: 10px 10px 10px 10px;
+    margin-top: 10px;
+
+  }
+
+  div{
+    border-radius: 50%;
+  }
