@@ -67,6 +67,11 @@ $(".minus").click(function(){addMethods("-")});
 
 $(".divide").click(function(){addMethods("/")});
 
+$(".restart").click(function(){
+  numbers=[];
+  $("h2").text("0");
+});
+
 $(".equals").click(function (){
   numeroInicial =0;
   if(numeroInicial===0){
