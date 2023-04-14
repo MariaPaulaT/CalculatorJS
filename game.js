@@ -33,18 +33,22 @@ $(".btn1").click(function() {
 
   $(".btn7").click(function() {
     anadirNumero("7");
+    $("h2").text("7");
   });
 
   $(".btn8").click(function() {
     anadirNumero("8");
+    $("h2").text("8");
   });
   
   $(".btn9").click(function() {
     anadirNumero("9");
+    $("h2").text("9");
   });
 
   $(".btn0").click(function() {
     anadirNumero("0");
+    $("h2").text("0");
   });
 
   function anadirNumero(num){
@@ -55,33 +59,40 @@ $(".btn1").click(function() {
     }
   }
 
-  
+$(".plus").click(function(){addMethods("+")});
 
-    //12 = sumar
-$(".plus").click(function(){
-  numeroAnt = numbers[numbers.length-1];
-   if(numbers.length===0){
+$(".times").click(function(){addMethods("*")});
 
-   } else if(numeroAnt === "1" || numeroAnt === "2" || numeroAnt === "3" ||numeroAnt === "4" || numeroAnt === "5"  || numeroAnt === "6" || numeroAnt === "7" || numeroAnt === "8" || numeroAnt === "9" || numeroAnt === "0"     ){
-        numbers.push("+");
-        $("h2").text("+");
-    }
+$(".minus").click(function(){addMethods("-")});
 
-});
+$(".divide").click(function(){addMethods("/")});
 
 $(".equals").click(function (){
   numeroInicial =0;
+  if(numeroInicial===0){
   for(var j=0; j<numbers.length; j++){
     if( j !== "1" || j !== "2" || j !== "3" ||j !== "4" || j !== "5"  || j !== "6" || j !== "7" || j !== "8" || j !== "9" || j !== "0"  ){
       numeroInicial = getNumber(0,j);
       console.log(numeroInicial);
-  }}
+  }}}
     if(numbers.length!==0){
     
     for(var i=1; i<numbers.length;i++){
         if( numbers[i]==="+"){
-          numero2 = getNumberFrom(i);
+          var numero2 = getNumberFrom(i);
           numeroInicial = numeroInicial+ numero2;       
+        } else if(numbers[i] ==="-"){
+          console.log("-");
+          var numero3 = getNumberFrom(i);
+          console.log(numeroInicial);
+          console.log(numero3);
+          numeroInicial -= numero3;
+        } else if (numbers[i] ==="*"){
+          var numero4 = getNumberFrom(i);
+          numeroInicial = numeroInicial*numero4;
+        } else if (numbers[i] ==="/"){
+          var numero4 = getNumberFrom(i);
+          numeroInicial = numeroInicial/numero4;
         }
         $("h2").text(numeroInicial);
     }}
@@ -101,8 +112,21 @@ var posicion2=0;
       posicion2=j;
     }
   }
-  numeroFinal = numbers.slice(posicion1, posicion2 + 1).join("");
+  numeroFinal = numbers.slice(posicion1+1, posicion2 + 1).join("");
   numero = parseInt(numeroFinal);
   return numero;
+
+}
+
+function addMethods(signo){
+ 
+  numeroAnt = numbers[numbers.length-1];
+   if(numbers.length===0){
+    
+   } else if(numeroAnt === "1" || numeroAnt === "2" || numeroAnt === "3" ||numeroAnt === "4" || numeroAnt === "5"  || numeroAnt === "6" || numeroAnt === "7" || numeroAnt === "8" || numeroAnt === "9" || numeroAnt === "0"     ){
+        numbers.push(signo);
+        $("h2").text(signo);
+        
+    }
 
 }
